@@ -98,8 +98,8 @@ int main(int argc, char **argv)
 	string output_folder = "./output";
 	string exp = "exp";
 
-	int width_lane = 10;
-	double iou_threshold = 0.4;
+	int width_lane = 30;
+	double iou_threshold = 0.3;
 	int im_width = 1920;
 	int im_height = 1280;
 	int oc;

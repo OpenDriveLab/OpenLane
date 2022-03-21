@@ -4,21 +4,13 @@ OpenLane is the first real-world and the largest scaled 3D lane dataset to date.
 ![](docs/overview.png) 
 
 This repository is organized as the following.
-<!-- - [ChangeLog](ChangeLog) -->
 - [Data](#a-name"data"a-data)
 - [Evaluation Kit](#a-name"eval"a-evaluation-kit)
 - [Citation](#a-name"citation"a-citation)
 - [License](#a-name"license"a-license)
 
-<!-- ## ChangeLog -->
 ### March 2022 Update
 We released v1.0 of the Openlane dataset including 1000 segments with labels of 3D/2D lanes and CIPO.
-<!-- ### December 2021 Update
-We updated the well organized data format of the dataset. We also updated the annotation of merge/split lane in a more reasonable way.
-  - Reformated the 2d/3d lane annotation. For the detailed informationn of the data format, please read [data_format.md](docs/data_format.md).
-  - Changed the way we annotated merge/split lane. From one long line with one short line to two partially coincedent long line.
-### November 2021 Update
-We released v1.0 of the OpenLane dataset including Waymo 300 segments and labels of 3D lanes for approximatly 60,000 frames. Please read Demo code to find the information on how to use it. -->
 
 ## <a name="data"></a> Data
 OpenLane dataset is constructed on mainstream datasets in the field of autonomous driving. In v1.0, we release the annotation on [Waymo Open Dataset](https://waymo.com/open/data/perception/). In the future we'll update for annotation on [nuScenes](https://www.nuscenes.org/nuscenes). 
@@ -35,40 +27,31 @@ We annotate lane in the following format.
 - Lane tracking ID. Each lane except curb has a unique id. 
 - Stopline and curb.
 
-For more annotation criterion, please refer to [Lane Anno Criterion](Criterion/Lane/README.md)
+For more annotation criterion, please refer to [Lane Anno Criterion](criterion/Lane/README.md)
 
-<!-- ![](docs/sup-dataset-lane-1.png)  -->
 ### CIPO/Scenes Annotation
 We annotate CIPO in the following format.
 - 2D bounding box with a category represent the importance levels of targets. 
 - Scene Tag. It describes in which scenario this frame is collected.
-- Weather Tag. 
+- Weather Tag. It describes under what weather this frame is collected.
 - Hours Tag. It annotates in what time this frame is collected.
 
-For more annotation criterion, please refer to [CIPO Anno Criterion](Criterion/CIPO/README.md)
-
-<!-- ![](docs/sup-dataset-cipo-1.png)  -->
-<!-- The CIPO has 4 different levels based on the distance, where the 1st level represent the most important (i.e. the closest). We annotate each target with a CIPO level.  -->
-<!-- ### Scene Annotation
-- Classification with different scenes such as weather and location. -->
+For more annotation criterion, please refer to [CIPO Anno Criterion](criterion/CIPO/README.md)
 
 ## <a name="eval"></a> Evaluation Kit
 We provide evaluation tools on both lane and CIPO. Following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection, OpenLane leverages existent practice in the community so that users would not handle additional rules for a new benchmark.
-- [Lane Detection](LANE_evaluation/README.md)
-- [CIPO Detection](CIPO_evaluation/README.md)
-<!-- - Scene Detection[TODO] -->
-
-<!-- ## Known Issues
-Visualization of 3D lanes needs to be carried in a proper scale, otherwise the performance will have a large shake. -->
+- [Lane Detection](eval/LANE_evaluation/README.md)
+- [CIPO Detection](eval/CIPO_evaluation/README.md)
    
 ## <a name="citation"></a> Citation
 Please use the following citation when referencing OpenLane:
-TODO
-    <!-- @article{OpenLane,
-      title={OpenLane: A multimodal dataset for autonomous driving},
-      author={Hongyang Li and Yang Li  and Li Chen and Xiangwei Geng and Jialong Guo},
-      year={2021}
-    } -->
+
+    @article{chen2022persformer,
+      title={PersFormer: 3D Lane Detection via Perspective Transformer and the OpenLane Benchmark},
+      author={Chen Li, Sima Chonghao, Li Yang, Zheng Zehan, Xu Jiajie, Geng Xiangwei, Li Hongyang, He Conghui, Shi Jianping, Qiao Yu, Yan Junchi},
+      journal={arXiv preprint arXiv:}
+      year={2022}
+    }
 
 ## <a name="license"></a> License
-Our dataset is based on the Waymo Open Dataset and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.
+Our dataset is based on the [Waymo Open Dataset](https://waymo.com/open/data/perception/) and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.

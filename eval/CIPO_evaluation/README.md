@@ -16,7 +16,6 @@ This is now the Official Evaluation Kit for OpenLane CIPO Detection Challenge.
 
 ##  <a name="install"></a> Install
 We provide a requirements.txt to setup the environment of evaluation. To install:
-<!-- -For Python, run "make" under CIPO_evaluation -->
 ```
 git clone https://github.com/OpenPerceptionX/OpenLane.git
 cd OpenLane/CIPO_evaluation

@@ -1,7 +1,10 @@
 # Lane Annotation Criterion
-Our principle for the 2D lane detection task is to find all visible lanes inside left and right road edges. And 3D lane detection focus on a limited range of frontview. Following this philosophy, we carefully annotate lanes in each frame.
-## 2D/3D Lanes
-Here's the data format for 2D/3D lane annotation. The evaluation can be referred from [here](../../LANE_evaluation/README.md)
+Our principle for the lane detection task is to find all visible lanes inside left and right road edges. Examples of visualizing lane annotation on 2D image are shown below.
+
+![](sup-dataset-lane-1.png) 
+
+## Data Format
+Here's the data format for 2D/3D lane annotation. The evaluation can be referred from [here](../../eval/LANE_evaluation/README.md)
 ```
 {
     "intrinsic":                            <float> [3, 3] -- camera intrinsic matrix
@@ -47,31 +50,28 @@ Here's the data format for 2D/3D lane annotation. The evaluation can be referred
 }
 ```
 
-## Workflow
-We follow the four step described below to generate 2D/3D lane annotation.
-### Step 1
-Primarily, we generate the necessary high-quality 2D lane labels. They contain the final annotations of tracking ID, category, and 2D points ground truth. 
-### Step 2
-Then for each frame, the point clouds are first filtered with the original 3D object bounding boxes and then projected back into the corresponding image. We further keep those points related to 2D lanes only with a certain threshold.
-### Step 3
-Afterward, with the help of the localization and mapping system, 3D lane points in frames within a segment could be spliced into long, high-density lanes. 
-### Step 4
-A smoothing step is ultimately deployed to filtrate any outliers and generate the 3D labeling results.
 
-However, due to the complexity of scenarios, there exist some special cases we seek to illustrate here.
+## 2D/3D Lane Annotation Generation Workflow
+1. The necessary high-quality 2D lane labels. They contain the final annotations of tracking ID, category, and 2D points ground truth. 
+2. Then for each frame, the point clouds are first filtered with the original 3D object bounding boxes and then projected back into the corresponding image. We further keep those points related to 2D lanes only with a certain threshold.
+3. With the help of the localization and mapping system, 3D lane points in frames within a segment could be spliced into long, high-density lanes. 
+4. Points whose 2D projections are higher than the ending position of its 2D annotation are labeled as invisible.
+5. A smoothing step is ultimately deployed to filtrate any outliers and generate the 3D labeling results.
+
+
+## Note
 ### Occlusion
-Lanes are often occluded by objects or invisible because of abrasion but they are still valuable for the real application. Thus we annotate lanes if parts of them are visible, meaning lanes with one side being occluded are extended or lanes with invisible intermediate parts are completed according to the context.
+Lanes are often occluded by objects or invisible because of abrasion but they are still valuable for the real application. Thus we annotate lanes if parts of them are visible, meaning lanes with one side being occluded are extended, or lanes with invisible intermediate parts are completed, according to the context.
+### Visibility
+Visibility mainly relates to points in far distance, rather than occulusion or abrasion. It's not needed in evaluation, but it helps model to distinguish visible lane points from invisible ones.
 ### Topology
-It is very common that the number of lanes changes, especially when lanes have complex topologies such as fork lanes in merge and split cases. Traditional lane datasets usually omit these scenarios for simplicity, while we keep them all and further choose them out of the whole dataset for evaluation. Fork lanes are annotated as separate lanes with a common starting point (split) or ending point (merge) - two close adjacent lanes are desired for the lane detection methods.
+It is very common that the number of lanes changes, especially when lanes have complex topologies such as fork lanes in merge and split cases. Fork lanes are annotated as separate lanes with a common starting point (split) or ending point (merge) - two close adjacent lanes are desired for the lane detection methods.
 ### Category
-We further annotate each lane as one of the 14 lane categories, i.e., single white dash, single white solid, double white dash, double white solid, double white dash solid (left white dash with right white solid), double white solid dash (left white solid with right white dash), single yellow dash, single yellow solid, double yellow dash, double yellow solid, double yellow dash solid (left yellow dash with right yellow solid), double yellow solid dash (left yellow solid with right yellow dash), left roadedge, right roadedge. Note that traffic bollards are considered as roadedge as well if they are not temporally placed.
+We annotate each lane as one of the 14 lane categories. Note that traffic bollards are considered as roadedge as well if they are not temporally placed.
 ### Tracking ID
-Different from all the other lane datasets, we annotate a tracking ID for each lane which is unique across the whole segment. We believe this could be helpful for video lane detection or lane tracking tasks. 
+We annotate a tracking ID for each lane which is unique across the whole segment. We believe this could be helpful for video lane detection or lane tracking tasks. 
 ### Left-Right Attribute
 We also assign a number in 1-4 to the most important 4 lanes based on their relative position to the ego-vehicle. Basically, the left-left lane is 1, the left lane is 2, the right lane is 3, and the right-right lane is 4.
 ### Scene Case
 We provide different splitting based on these themes: Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. Up&Down case focuses on uphill/downhill roads. Curve case consists of different big curve roads. Extreme Weather, as its name explains, is composed of roads in rain. Night case aims at roads in dim light. Intersection case and Merge&Split case are the two common traffic scenes where lane topology is difficult.
 
-Examples of visualizing lane annotation on 2D image are shown below.
-
-![](sup-dataset-lane-1.png) 

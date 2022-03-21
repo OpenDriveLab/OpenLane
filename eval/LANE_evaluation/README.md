@@ -36,7 +36,7 @@ make
 ### Data Format
 - Prepare your result json in directory following this structure:
 ```
-|-- output_dir
+|-- result_dir
 |   |-- validation
 |   |   |-- segment-xxx
 |   |   |   |-- xxx.json
@@ -46,7 +46,14 @@ make
 |   |   |   |-- ...
 |   |   |-- ...
 ```
-- Each json should be formatted in the following structure:
+- Prepare a test list file(.txt) contains the relative image path of dataset which is consistent with the structure above:
+```
+validation/segment-xxx/xxx.jpg
+validation/segment-xxx/xxx.jpg
+validation/segment-xxx/xxx.jpg
+...
+```
+- Each result json should be formatted in the following structure:
 ```
 {
     "file_path":                            <str> -- image path
@@ -62,33 +69,40 @@ make
 
 
 ### Evaluation
-To run the evaluation for your method please run:
+To run the evaluation for your method, please run:
 ```
 cd lane2d
-./evaluate -a $dataset_dir  -d $output_dir -i $image_dir -l $list -w $w_lane -t $iou -c $im_w -r $im_h -f $frame -o $output_file
+./evaluate -a $dataset_dir  -d $result_dir -i $image_dir -l $test_list -w $w_lane -t $iou -o $output_file
 ```
 
 The basic arguments are described below.
 
-`dataset_dir`: Data path of OpenLane dataset 
+`dataset_dir`: Data (Annotation) path of OpenLane dataset 
+
+`result_dir`: Detection results path of your model. See 'Data Format' above.
 
 `image_dir`: Image path of OpenLane dataset
 
-`list`: Image list which will be evaluated
-
-`output_dir`: Detection results path
+`test_list`: Image list file(.txt) which contains relative path of every image. See 'Data Format' above.
 
 `w_lane`: Lane width, 30 in original [SCNN](https://github.com/XingangPan/SCNN) paper
 
 `iou`: IOU threshold used for evaluation, 0.3/0.5 in original [SCNN](https://github.com/XingangPan/SCNN) paper
 
-`im_w`: Width of the original image
-
-`im_h`: Height of the original image
-
-`frame`: Frame, should be 1
-
 `output_file`: Evaluation outputs file path
+  
+Here is an example: 
+  
+```
+./evaluate \
+-a ./Dataset/OpenLane/lane3d_v2.0/ \
+-d ./Evaluation/PersFormer/result_dir/ \
+-i ./Dataset/OpenLane/images/ \
+-l ./Evaluation/PersFormer/test_list.txt \
+-w 30 \
+-t 0.3 \
+-o ./Evaluation/PersFormer/ \
+```
 
 ### Metric formula
 We adopt the evaluation metric from CULane dataset in [SCNN](https://github.com/XingangPan/SCNN).
@@ -99,7 +113,7 @@ We adopt the evaluation metric from CULane dataset in [SCNN](https://github.com/
 ### Data Format
 - Prepare your result json in directory following this structure:
 ```
-|-- output_dir
+|-- result_dir
 |   |-- validation
 |   |   |-- segment-xxx
 |   |   |   |-- xxx.json
@@ -109,7 +123,14 @@ We adopt the evaluation metric from CULane dataset in [SCNN](https://github.com/
 |   |   |   |-- ...
 |   |   |-- ...
 ```
-- Each json should include result following this structure:
+- Prepare a test list file(.txt) contains the relative image path of dataset which is consistent with the structure above:
+```
+validation/segment-xxx/xxx.jpg
+validation/segment-xxx/xxx.jpg
+validation/segment-xxx/xxx.jpg
+...
+```
+- Each result json should include result following this structure:
 ```
 {
     "intrinsic":                            <float> [3, 3] -- camera intrinsic matrix
@@ -135,12 +156,19 @@ python eval_3D_lane.py --dataset_dir $dataset_dir --pred_dir $pred_dir --test_li
 
 The basic arguments are described below. For more arguments, please see the script `utils.py`.
 
-`dataset_dir`: Data path
+`dataset_dir`: Data (Annotation) path of OpenLane dataset.
 
-`pred_dir`: Prediction result save path
+`pred_dir`:  Prediction results path of your model. See 'Data Format' above.
 
-`test_list`: test list txt path
-
+`test_list`: Image list file(.txt) which contains relative path of every image. See 'Data Format' above.
+  
+Here is an example:
+```
+python eval_3D_lane.py \
+--dataset_dir=./Dataset/OpenLane/lane3d_v2.0/ \
+--pred_dir=./Evaluation/PersFormer/result_dir/ \
+--test_list=./Evaluation/PersFormer/test_list.txt \
+```
   
 ## Benchmark  
 We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](Criterion/Lane/README.md) .
