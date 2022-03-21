@@ -26,8 +26,8 @@ This is the Official Evaluation Kit for OpenLane Lane Detection.
 ## <a name="install"></a> Install
 Please make sure you have installed all required dependencies. Execute:
 ```
-git clone TODO
-cd openlane/LANE_evaluation/lane2d
+git clone https://github.com/OpenPerceptionX/OpenLane.git
+cd OpenLane/LANE_evaluation/lane2d
 make
 ```
 
@@ -52,13 +52,9 @@ make
     "file_path":                            <str> -- image path
     "lane_lines": [
         {
-            "category":                     <int> -- lane shape category
-            "uv":                           <float> [2, n] -- lane points in pixel coordinate
-        }
-        {
-            "category":                     <int> -- lane shape category, 1 - num_category
-            "uv":                           <float> [2, n] -- lane points in pixel coordinate
-        }
+            "category":                     <int> -- lane category
+            "uv":                           <float> [2, n] --  2D lane points in pixel coordinate
+        },
         ...                                 (k lanes in `lane_lines` dict)
     ]
 }
@@ -74,9 +70,9 @@ cd lane2d
 
 The basic arguments are described below.
 
-`dataset_dir`: Data path of SenseMentor dataset 
+`dataset_dir`: Data path of OpenLane dataset 
 
-`image_dir`: Image path of SenseMentor dataset
+`image_dir`: Image path of OpenLane dataset
 
 `list`: Image list which will be evaluated
 
@@ -121,21 +117,9 @@ We adopt the evaluation metric from CULane dataset in [SCNN](https://github.com/
     "file_path":                            <str> -- image path
     "lane_lines": [
         {
-            "xyz":                          <float> [3, n] -- x,y,z coordinates of sample points in camera coordinate
-            "uv":                           <float> [2, n] -- u,v coordinates of sample points in pixel coordinate
-            "visibility":                   <float> [n] -- visibility of each sample point
-            "category":                     <int> -- lane shape category, 1 - num_category
-            "attribute":                    <int> -- left or right attribute
-            "track_id":                     <int> -- unique id of a lane
-        }
-        {
-            "xyz":                          <float> [3, n] -- x,y,z coordinates of sample points in camera coordinate
-            "uv":                           <float> [2, n] -- u,v coordinates of sample points in pixel coordinate
-            "visibility":                   <float> [n] -- visibility of each sample point
-            "category":                     <int> -- lane shape category, 1 - num_category
-            "attribute":                    <int> -- left or right attribute
-            "track_id":                     <int> -- unique id of a lane
-        }
+            "xyz":                          <float> [3, n] -- x,y,z coordinates of sampled points in camera coordinate
+            "category":                     <int> -- lane category
+        }，
         ...                                 (k lanes in `lane_lines` dict)
     ]
 }
@@ -156,6 +140,30 @@ The basic arguments are described below. For more arguments, please see the scri
 `pred_dir`: Prediction result save path
 
 `test_list`: test list txt path
+
+  
+## Benchmark  
+We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](Criterion/Lane/README.md) .
+Based on the [evaluation metrics](LANE_evaluation/README.md), results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
+  
+- 2D Lane Detection 
+  
+| Method     | All  | Up&<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |
+| :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+| LaneATT-S  | 28.3 | 25.3 | 25.8 | 32.0 | 27.6 | 14.0 | 24.3 | 
+| LaneATT-M  | 31.0 | 28.3 | 27.4 | 34.7 | 30.2 | 17.0 | 26.5 | 
+| PersFormer | 42.0 | 40.7 | 46.3 | 43.7 | 36.1 | 28.9 | 41.2 |  
+| CondLaneNet-S | 52.3 | 55.3 | 57.5 | 45.8 | 46.6 | 48.4 | 45.5 | 
+| CondLaneNet-M | 55.0 | 58.5 | 59.4 | 49.2 | 48.6 | 50.7 | 47.8 | 
+|**CondLaneNet-L**|**59.1**|**62.1**|**62.9**|**54.7**|**51.0**|**55.7**|**52.3**|  
+   
+- 3D Lane Detection  
+  
+| Method     | All  | Up &<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |  
+| :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|  
+| GenLaneNet | 29.7 | 24.2 | 31.1 | 26.4 | 17.5 | 19.7 | 27.4 |  
+| 3DLaneNet  | 40.2 | 37.7 | 43.2 | 43.0 | 39.3 | 29.3 | 36.5 |  
+|**PersFormer**|**47.8**|**42.4**|**52.8**|**48.7**|**46.0**|**37.9**|**44.6**|  
 
 
 ### Metric formula

@@ -3,7 +3,7 @@ OpenLane is the first real-world and the largest scaled 3D lane dataset to date.
 
 ![](docs/overview.png) 
 
-The repo is organized as the following.
+This repository is organized as the following.
 <!-- - [ChangeLog](ChangeLog) -->
 - [Data](#a-name"data"a-data)
 - [Evaluation Kit](#a-name"eval"a-evaluation-kit)
@@ -29,37 +29,38 @@ You can download the entire OpenLane dataset [TODO]()
 
 ### Lane Annotation
 We annotate lane in the following format.
+- Lane shape. Each 2D/3D lane is presented as a set of 2D/3D points.
 - Lane category. Each lane has a category such as double yellow line or curb.
 - Lane property. Some of lanes have a property such as right, left.
 - Lane tracking ID. Each lane except curb has a unique id. 
 - Stopline and curb.
 
-Here's some visualization results. For more annotation criterion, please refer to [Lane Anno Criterion](Criterion/Lane/README.md)
+For more annotation criterion, please refer to [Lane Anno Criterion](Criterion/Lane/README.md)
 
-![](docs/sup-dataset-lane-1.png) 
-### CIPO Annotation
+<!-- ![](docs/sup-dataset-lane-1.png)  -->
+### CIPO/Scenes Annotation
 We annotate CIPO in the following format.
 - 2D bounding box with a category represent the importance levels of targets. 
 - Scene Tag. It describes in which scenario this frame is collected.
 - Weather Tag. 
 - Hours Tag. It annotates in what time this frame is collected.
 
-Here's some visualization results. For more annotation criterion, please refer to [CIPO Anno Criterion](Criterion/CIPO/README.md)
+For more annotation criterion, please refer to [CIPO Anno Criterion](Criterion/CIPO/README.md)
 
-![](docs/sup-dataset-cipo-1.png) 
+<!-- ![](docs/sup-dataset-cipo-1.png)  -->
 <!-- The CIPO has 4 different levels based on the distance, where the 1st level represent the most important (i.e. the closest). We annotate each target with a CIPO level.  -->
 <!-- ### Scene Annotation
 - Classification with different scenes such as weather and location. -->
 
 ## <a name="eval"></a> Evaluation Kit
 We provide evaluation tools on both lane and CIPO. Following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection, OpenLane leverages existent practice in the community so that users would not handle additional rules for a new benchmark.
-- [Lane Detection](LANE_evalution/README.md)
-- [CIPO Detection](CIPO_evalution/README.md)
+- [Lane Detection](LANE_evaluation/README.md)
+- [CIPO Detection](CIPO_evaluation/README.md)
 <!-- - Scene Detection[TODO] -->
 
 <!-- ## Known Issues
 Visualization of 3D lanes needs to be carried in a proper scale, otherwise the performance will have a large shake. -->
-
+   
 ## <a name="citation"></a> Citation
 Please use the following citation when referencing OpenLane:
 TODO
@@ -70,5 +71,4 @@ TODO
     } -->
 
 ## <a name="license"></a> License
-TODO
-
+Our dataset is based on the Waymo Open Dataset and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.

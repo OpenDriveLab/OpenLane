@@ -1,6 +1,6 @@
 # CIPO Evaluation Kit
 
-This is now the Official Evaluation Kit for SenseMentor CIPO Detection Challenge.
+This is now the Official Evaluation Kit for OpenLane CIPO Detection Challenge.
 
 ## Overview
 - [Requirements](#a-name"requirement"a-requirements)
@@ -12,14 +12,16 @@ This is now the Official Evaluation Kit for SenseMentor CIPO Detection Challenge
 - [OpenCV](https://github.com/opencv/opencv)
 - g++
 - numpy
-- requirements.txt
+- matplotlib
 
 ##  <a name="install"></a> Install
-To install:
--For Python, run "make" under CIPO_evaluation
+We provide a requirements.txt to setup the environment of evaluation. To install:
+<!-- -For Python, run "make" under CIPO_evaluation -->
 ```
-git clone https://gitlab.senseauto.com/perceptionx/meta-add/sensementor
-cd sensementor/CIPO_evaluation
+git clone https://github.com/OpenPerceptionX/OpenLane.git
+cd OpenLane/CIPO_evaluation
+conda create -n cipo_eval --file requirements.txt
+conda activate cipo_eval
 make
 ```
 
@@ -40,34 +42,24 @@ make
 - Each json should be formatted in the following structure:
 ```
 {
+    "results": [                                (k objects in `results` list)
+        {
+            "width":                            <float> -- width of cipo bbox
+            "height":                           <float> -- height of cipo bbox
+            "x":                                <float> -- x axis of cipo bbox left-top corner
+            "y":                                <float> -- y axis of cipo bbox left-top corner
+            "id":                               <str> -- importance level of cipo bbox
+            "type":                             <int> -- type of cipo bbox
+        },
+        ...                                
+    ],
     "raw_file_path":                            <str> -- image path
-    "results": [
-        {
-            "width":                            <float> -- width of cipo bbox
-            "height":                           <float> -- height of cipo bbox
-            "x":                                <float> -- x axis of cipo bbox left-top corner
-            "y":                                <float> -- y axis of cipo bbox left-top corner
-            "id":                               <str> -- track_id of cipo bbox
-            "type":                             <int> -- car type of cipo bbox
-            "score":                            <float> -- output score of your network
-        }
-        {
-            "width":                            <float> -- width of cipo bbox
-            "height":                           <float> -- height of cipo bbox
-            "x":                                <float> -- x axis of cipo bbox left-top corner
-            "y":                                <float> -- y axis of cipo bbox left-top corner
-            "id":                               <str> -- track_id of cipo bbox
-            "type":                             <int> -- car type of cipo bbox
-            "score":                            <float> -- output score of your network
-        }
-        ...                                 (k objects in `results` dict)
-    ]
 }
 ```
 
 
 ### Evaluation
-Please follow `EvalDemo.ipynb`.
+Please follow `EvalDemo.py`. We provide an example in it, with ground truth in `annotations/` and prediction in `results/`.
 
 ### Metric formula
 We adopt the evaluation metric in [COCO](https://github.com/cocodataset/cocoapi).
