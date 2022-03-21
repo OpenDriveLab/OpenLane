@@ -171,8 +171,8 @@ python eval_3D_lane.py \
 ```
   
 ## Benchmark  
-We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](Criterion/Lane/README.md) .
-Based on the [evaluation metrics](LANE_evaluation/README.md), results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
+We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](../../criterion/Lane/README.md) .
+Based on the evaluation metrics, results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
   
 - 2D Lane Detection 
   
