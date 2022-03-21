@@ -1,0 +1,6 @@
+file: outputoutput.txt
+tp: 1494 fp: 0 fn: 0
+precision: 1
+recall: 1
+Fmeasure: 1
+
