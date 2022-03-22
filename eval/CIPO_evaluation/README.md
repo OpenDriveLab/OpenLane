@@ -1,28 +1,16 @@
 # CIPO Evaluation Kit
 
-This is now the Official Evaluation Kit for OpenLane CIPO Detection Challenge.
+This is the Official Evaluation Kit for OpenLane CIPO Detection.
 
 ## Overview
-- [Requirements](#a-name"requirement"a-requirements)
+- [Requirements & Install](#a-name"requirement"a-requirements)
 - [Install](#a-name"install"a-install)
 - [CIPO evaluation](#a-name"cipoeval"a-cipo-evaluation)
 - [Acknowledgements](#a-name"ack"a-acknowledgements)
 
-##  <a name="requirement"></a> Requirements
-- [OpenCV](https://github.com/opencv/opencv)
-- g++
-- numpy
-- matplotlib
+## <a name="requirement"></a> Requirements & Install
+See [Requirements & Install](../README.md)
 
-##  <a name="install"></a> Install
-We provide a requirements.txt to setup the environment of evaluation. To install:
-```
-git clone https://github.com/OpenPerceptionX/OpenLane.git
-cd OpenLane/CIPO_evaluation
-conda create -n cipo_eval --file requirements.txt
-conda activate cipo_eval
-make
-```
 
 ##  <a name="cipo_eval"></a> CIPO evaluation
 
@@ -58,7 +46,7 @@ make
 
 
 ### Evaluation
-Please follow `EvalDemo.py`. We provide an example in it, with ground truth in `annotations/` and prediction in `results/`.
+We provide demo code in `example/`. Please follow `example/EvalDemo.py`. We put some dummy ground truth in `example/annotations/` and prediction in `example/results/`.
 
 ### Metric formula
 We adopt the evaluation metric in [COCO](https://github.com/cocodataset/cocoapi).

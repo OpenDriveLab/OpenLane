@@ -1,10 +1,10 @@
 # ==============================================================================
 # Binaries and/or source for the following packages or projects are presented under one or more of the following open
 # source licenses:
-# Makefile       The OpenLane Dataset Authors        Apache License, Version 2.0
+# EvalDemo.py       The OpenLane Dataset Authors        Apache License, Version 2.0 
 # 
 # See:
-# https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/Makefile
+# https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoEvalDemo.ipynb
 # https://github.com/cocodataset/cocoapi/blob/master/license.txt
 #
 # Copyright (c) 2022, The OpenLane Dataset Authors. All Rights Reserved.
@@ -22,16 +22,37 @@
 # limitations under the License.
 # ==============================================================================
 
-all:
-    # install pycocotools locally
-	python3 setup.py build_ext --inplace
-	rm -rf build
+import matplotlib.pyplot as plt
 
-install:
-	# install pycocotools to the Python site-packages
-	python3 setup.py build_ext install
-	rm -rf build
+# from eval.CIPO_evaluation.adapter import adapter
+# from ..adapter import adapter
+# from .. import adapter
+import sys
+sys.path.append("../")
+from adapter import adapter
+from pycocotools.cocoeval import COCOeval
+import numpy as np
+import skimage.io as io
+import pylab
 
-clean:
-	rm -rf build
-	rm pycocotools/_mask.cpython-38-x86_64-linux-gnu.so
+dataDir='./'
+annFile = '{0}/txtfile.txt'.format(dataDir)
+cocoGt = adapter(annFile)
+print(len(cocoGt.getAnnIds()))
+
+#initialize COCO detections api
+resFile='./resfile.txt'
+cocoDt=cocoGt.loadRes(resFile)
+# print(cocoDt.imgToAnns)
+
+imgIds=sorted(list(cocoGt.imgs.keys()))
+imgIds=imgIds[0:2]
+imgId = imgIds[np.random.randint(2)]
+
+# running evaluation
+cocoEval = COCOeval(cocoGt,cocoDt)
+cocoEval.params.imgIds  = imgIds
+cocoEval.evaluate()
+cocoEval.accumulate()
+cocoEval.summarize()
+

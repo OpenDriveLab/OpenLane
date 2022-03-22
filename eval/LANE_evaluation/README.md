@@ -3,35 +3,14 @@
 This is the Official Evaluation Kit for OpenLane Lane Detection.
 
 ## Overview
-- [Laneline Evaluation Kit](#laneline-evaluation-kit)
-  - [Overview](#overview)
-  - [<a name="requirement"></a> Requirements](#-requirements)
-  - [<a name="install"></a> Install](#-install)
-  - [<a name="2d_lane"></a> 2D laneline evaluation](#-2d-laneline-evaluation)
-    - [Data Format](#data-format)
-    - [Evaluation](#evaluation)
-    - [Metric formula](#metric-formula)
-  - [<a name="3d_lane"></a> 3D laneline evaluation](#-3d-laneline-evaluation)
-    - [Data Format](#data-format-1)
-    - [Evaluation](#evaluation-1)
-    - [Metric formula](#metric-formula-1)
-  - [<a name="ack"></a> Acknowledgements](#-acknowledgements)
+- [Requirements & Install](#a-name"requirement"a-requirements)
+- [2D Lane evaluation](#a-name"2dlane"a-2d-lane-evaluation)
+- [Acknowledgements](#a-name"ack"a-acknowledgements)
 
-## <a name="requirement"></a> Requirements
-- [OpenCV](https://github.com/opencv/opencv)
-- scipy
-- numpy
-- g++
+## <a name="requirement"></a> Requirements & Install
+See [Requirements & Install](../README.md)
 
-## <a name="install"></a> Install
-Please make sure you have installed all required dependencies. Execute:
-```
-git clone https://github.com/OpenPerceptionX/OpenLane.git
-cd OpenLane/LANE_evaluation/lane2d
-make
-```
-
-## <a name="2d_lane"></a> 2D laneline evaluation
+## <a name="2d_lane"></a> 2D Lane evaluation
 
 ### Data Format
 - Prepare your result json in directory following this structure:
@@ -171,7 +150,7 @@ python eval_3D_lane.py \
 ```
   
 ## Benchmark  
-We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](../../criterion/Lane/README.md) .
+We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](../../anno_criterion/Lane/README.md) .
 Based on the evaluation metrics, results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
   
 - 2D Lane Detection 

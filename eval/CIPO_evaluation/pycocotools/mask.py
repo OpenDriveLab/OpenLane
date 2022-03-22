@@ -1,4 +1,26 @@
-__author__ = 'tsungyi'
+# ==============================================================================
+# Binaries and/or source for the following packages or projects are presented under one or more of the following open
+# source licenses:
+# mask.py       The OpenLane Dataset Authors        Apache License, Version 2.0 
+# 
+# See:
+# https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/mask.py
+# https://github.com/cocodataset/cocoapi/blob/master/license.txt
+#
+# Copyright (c) 2022, The OpenLane Dataset Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
 
 import pycocotools._mask as _mask
 
@@ -64,14 +86,6 @@ import pycocotools._mask as _mask
 # gt'=intersect(dt,gt). Since by definition union(gt',dt)=dt, computing
 #  iou(gt,dt,iscrowd) = iou(gt',dt) = area(intersect(gt,dt)) / area(dt)
 # For crowd gt regions we use this modified criteria above for the iou.
-#
-# To compile run "python setup.py build_ext --inplace"
-# Please do not contact us for help with compiling.
-#
-# Microsoft COCO Toolbox.      version 2.0
-# Data, paper, and tutorials available at:  http://mscoco.org/
-# Code written by Piotr Dollar and Tsung-Yi Lin, 2015.
-# Licensed under the Simplified BSD License [see coco/license.txt]
 
 iou         = _mask.iou
 merge       = _mask.merge

@@ -1,14 +1,32 @@
+# ==============================================================================
+# Binaries and/or source for the following packages or projects are presented under one or more of the following open
+# source licenses:
+# eval_3D_lane.py       The OpenLane Dataset Authors        Apache License, Version 2.0
+# 
+# See:
+# https://github.com/yuliangguo/Pytorch_Generalized_3D_Lane_Detection/blob/master/tools/eval_3D_lane.py
+#
+# Copyright 2022 The OpenLane Dataset Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
 """
-Author: Yuliang Guo (yuliang_guo@alumni.brown.edu)
-
-Reference: "Gen-LaneNet: Generalized and Scalable Approach for 3D Lane Detection". Y. Guo. etal. 2020
-
-Description: This code is to evaluate 3D lane detection. The optimal matching between ground-truth set and predicted
-set of lanes are sought via solving a min cost flow.
+Description: This code is to evaluate 3D lane detection. The optimal matching between ground-truth set and predicted 
+    set of lanes are sought via solving a min cost flow.
 
 Evaluation metrics includes:
-    Average Precision (AP)
-    Max F-scores
+    F-scores
     x error close (0 - 40 m)
     x error far (0 - 100 m)
     z error close (0 - 40 m)
@@ -27,7 +45,7 @@ from utils.utils import *
 from utils.MinCostFlow import SolveMinCostFlow
 
 class LaneEval(object):
-    def __init__(self, args):
+    def __init__(self, args):        
         self.dataset_dir = args.dataset_dir
         # self.images_dir = args.images_dir
         self.pred_dir = args.pred_dir
