@@ -2,11 +2,13 @@
 # Binaries and/or source for the following packages or projects are presented under one or more of the following open
 # source licenses:
 # utils.py       The OpenLane Dataset Authors        Apache License, Version 2.0
+#
+# Contact simachonghao@pjlab.org.cn if you have any issue
 # 
 # See:
 # https://github.com/yuliangguo/Pytorch_Generalized_3D_Lane_Detection/blob/master/tools/utils.py
 #
-# Copyright 2022 The OpenLane Dataset Authors. All Rights Reserved.
+# Copyright (c) 2022 The OpenLane Dataset Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

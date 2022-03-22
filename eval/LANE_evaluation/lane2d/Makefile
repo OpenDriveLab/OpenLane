@@ -36,9 +36,11 @@ CC ?= gcc
 
 BUILD_DIR ?= ./build
 
-#OPENCV_PREFIX = /mnt/lustre/share/opencv-3.2/lib
-OPENCV_INCLUDE = /mnt/lustre/share_data/gengxiangwei/opencv_install/include
-OPENCV_LIB_PATH = /mnt/lustre/share_data/gengxiangwei/opencv_install/lib64
+# Example:
+# OPENCV_INCLUDE = /mnt/lustre/share_data/gengxiangwei/opencv_install/include
+# OPENCV_LIB_PATH = /mnt/lustre/share_data/gengxiangwei/opencv_install/lib64
+OPENCV_INCLUDE = ./
+OPENCV_LIB_PATH = ./
 OPENCV_LIB += opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs 
 
 

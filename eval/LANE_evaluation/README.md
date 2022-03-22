@@ -148,29 +148,6 @@ python eval_3D_lane.py \
 --pred_dir=./Evaluation/PersFormer/result_dir/ \
 --test_list=./Evaluation/PersFormer/test_list.txt \
 ```
-  
-## Benchmark  
-We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](../../anno_criterion/Lane/README.md) .
-Based on the evaluation metrics, results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
-  
-- 2D Lane Detection 
-  
-| Method     | All  | Up&<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |
-| :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| LaneATT-S  | 28.3 | 25.3 | 25.8 | 32.0 | 27.6 | 14.0 | 24.3 | 
-| LaneATT-M  | 31.0 | 28.3 | 27.4 | 34.7 | 30.2 | 17.0 | 26.5 | 
-| PersFormer | 42.0 | 40.7 | 46.3 | 43.7 | 36.1 | 28.9 | 41.2 |  
-| CondLaneNet-S | 52.3 | 55.3 | 57.5 | 45.8 | 46.6 | 48.4 | 45.5 | 
-| CondLaneNet-M | 55.0 | 58.5 | 59.4 | 49.2 | 48.6 | 50.7 | 47.8 | 
-|**CondLaneNet-L**|**59.1**|**62.1**|**62.9**|**54.7**|**51.0**|**55.7**|**52.3**|  
-   
-- 3D Lane Detection  
-  
-| Method     | All  | Up &<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |  
-| :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|  
-| GenLaneNet | 29.7 | 24.2 | 31.1 | 26.4 | 17.5 | 19.7 | 27.4 |  
-| 3DLaneNet  | 40.2 | 37.7 | 43.2 | 43.0 | 39.3 | 29.3 | 36.5 |  
-|**PersFormer**|**47.8**|**42.4**|**52.8**|**48.7**|**46.0**|**37.9**|**44.6**|  
 
 
 ### Metric formula

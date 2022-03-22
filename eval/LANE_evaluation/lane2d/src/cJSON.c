@@ -7,7 +7,7 @@ See:
 https://github.com/Bwar/CJsonObject/blob/master/cJSON.c
 https://github.com/Bwar/CJsonObject/blob/master/LICENSE
 
-Copyright 2022 The OpenLane Dataset Authors. All Rights Reserved.
+Copyright (c) 2022 The OpenLane Dataset Authors. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

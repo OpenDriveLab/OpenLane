@@ -7,7 +7,7 @@ See:
 https://github.com/cocodataset/cocoapi/blob/master/common/maskApi.h
 https://github.com/cocodataset/cocoapi/blob/master/license.txt
 
-Copyright 2022 The OpenLane Dataset Authors. All Rights Reserved.
+Copyright (c) 2022 The OpenLane Dataset Authors. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

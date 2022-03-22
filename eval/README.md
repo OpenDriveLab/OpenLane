@@ -19,6 +19,7 @@ conda create -n openlane_eval --file requirements.txt
 conda activate openlane_eval
 make
 cd ../LANE_evaluation/lane2d
+# specify your opencv path in ./Makefile#L42,43
 make
 ```
   

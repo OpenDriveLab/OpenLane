@@ -10,6 +10,7 @@ This repository is organized as the following.
 - [Get Started](#get-started)
   - [Download](#download)
   - [Evaluation Kit](#evaluation-kit)
+- [Benchmark](#benchmark)
 - [Citation](#citation)
 - [License](#license)
 
@@ -32,7 +33,7 @@ For more annotation criterion, please refer to [Lane Anno Criterion](anno_criter
 
 ### CIPO/Scenes Annotation
 We annotate CIPO and Scenes in the following format.
-- 2D bounding box with a category represent the importance levels of targets. 
+- 2D bounding box with a category representing the importance level of object. 
 - Scene Tag. It describes in which scenario this frame is collected.
 - Weather Tag. It describes under what weather this frame is collected.
 - Hours Tag. It annotates in what time this frame is collected.
@@ -40,13 +41,36 @@ We annotate CIPO and Scenes in the following format.
 For more annotation criterion, please refer to [CIPO Anno Criterion](anno_criterion/CIPO/README.md)
 
 ## Get Started
-Please follow these steps to make yourself familiar with the OpenLane dataset.
+Please follow these steps to make yourself familiar with the OpenLane dataset. Create an issue if you need any further information.
 ### Download
 You can download the entire OpenLane dataset [here](data/README.md)
 
 ### Evaluation Kit
 We provide evaluation tools on both lane and CIPO, following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection. Please refer to [Evaluation Kit](eval/README.md)
-    
+     
+## Benchmark  
+We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](anno_criterion/Lane/README.md)
+Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
+- 2D Lane Detection 
+  
+| Method     | All  | Up&<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |
+| :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+| LaneATT-S  | 28.3 | 25.3 | 25.8 | 32.0 | 27.6 | 14.0 | 24.3 | 
+| LaneATT-M  | 31.0 | 28.3 | 27.4 | 34.7 | 30.2 | 17.0 | 26.5 | 
+| PersFormer | 42.0 | 40.7 | 46.3 | 43.7 | 36.1 | 28.9 | 41.2 |  
+| CondLaneNet-S | 52.3 | 55.3 | 57.5 | 45.8 | 46.6 | 48.4 | 45.5 | 
+| CondLaneNet-M | 55.0 | 58.5 | 59.4 | 49.2 | 48.6 | 50.7 | 47.8 | 
+|**CondLaneNet-L**|**59.1**|**62.1**|**62.9**|**54.7**|**51.0**|**55.7**|**52.3**|  
+
+- 3D Lane Detection  
+  
+| Method     | All  | Up &<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |  
+| :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|  
+| GenLaneNet | 29.7 | 24.2 | 31.1 | 26.4 | 17.5 | 19.7 | 27.4 |  
+| 3DLaneNet  | 40.2 | 37.7 | 43.2 | 43.0 | 39.3 | 29.3 | 36.5 |  
+|**PersFormer**|**47.8**|**42.4**|**52.8**|**48.7**|**46.0**|**37.9**|**44.6**|  
+
+
 ## Citation
 Please use the following citation when referencing [OpenLane](https://arxiv.org/abs/2203.11089):
 
