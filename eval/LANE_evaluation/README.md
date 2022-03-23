@@ -89,6 +89,9 @@ cd example
 bash eval_demo.sh
 ```
 
+### Known Issue
+- libopencv not found `error while loading shared libraries: libopencv_core.so.3.4: cannot open shared object file: No such file or directory`. Please try `export LD_LIBRARY_PATH=/path/to/opencv/lib64/:$LD_LIBRARY_PATH` and then `bash eval_demo.sh`.
+
 ### Metric formula
 We adopt the evaluation metric from CULane dataset in [SCNN](https://github.com/XingangPan/SCNN).
 

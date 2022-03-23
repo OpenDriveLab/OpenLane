@@ -1,7 +1,7 @@
 # ==============================================================================
 # Binaries and/or source for the following packages or projects are presented under one or more of the following open
 # source licenses:
-# EvalDemo.py       The OpenLane Dataset Authors        Apache License, Version 2.0 
+# eval.py       The OpenLane Dataset Authors        Apache License, Version 2.0 
 # 
 # See:
 # https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoEvalDemo.ipynb
@@ -22,11 +22,9 @@
 # limitations under the License.
 # ==============================================================================
 
-import argparse
-import sys
-sys.path.append("../")
 from adapter import adapter
 from pycocotools.cocoeval import COCOeval
+import argparse
 
 def CIPO_eval(annFile, resFile):
 
@@ -55,4 +53,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     CIPO_eval(args.anno_txt, args.res_txt)
-

@@ -26,6 +26,17 @@ See [Requirements & Install](../README.md)
 |   |   |-- ...
 |   |-- ...
 ```
+- Prepare your annotation json in directory following this structure:
+```
+|-- annotations
+|   |-- segment-xxx
+|   |   |-- xxx.json
+|   |   |-- ...
+|   |-- segment-xxx
+|   |   |-- xxx.json
+|   |   |-- ...
+|   |-- ...
+```
 - Each json should be formatted in the following structure:
 ```
 {
@@ -37,16 +48,27 @@ See [Requirements & Install](../README.md)
             "y":                                <float> -- y axis of cipo bbox left-top corner
             "id":                               <str> -- importance level of cipo bbox
             "type":                             <int> -- type of cipo bbox
+            "score":                            <float> -- confidence, it only exists in result json
         },
         ...                                
     ],
     "raw_file_path":                            <str> -- image path
 }
 ```
+- Prepare your annotation and result file name in two txt file, both of which in the following formats:
+```
+segment-xxx/xxx.json
+segment-xxx/xxx.json
+...
+```
 
 
 ### Evaluation
-We provide demo code in `example/`. Please follow `example/EvalDemo.py`. We put some dummy ground truth in `example/annotations/` and prediction in `example/results/`.
+To run the evaluation for your method, please run:
+```
+python eval.py --anno_txt ./anno_file.txt --res_txt ./res_file.txt
+```
+We provide demo code in `example/`. Please follow `example/EvalDemo.py`. We put some dummy ground truth in `example/annotations/` and prediction in `example/results/`. And we prepare two example txt files `txtfile.txt` and `resfile.txt`. please run `python EvalDemo.py --anno_txt ./txtfile.txt --res_txt ./resfile.txt` to see the demo evaluation.
 
 ### Metric formula
 We adopt the evaluation metric in [COCO](https://github.com/cocodataset/cocoapi).

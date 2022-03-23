@@ -8,18 +8,21 @@ This is the Official Evaluation Kit for OpenLane Dataset.
 - numpy
 - matplotlib
 - scipy
+- ortools
 - g++
   
 ##  <a name="install"></a> Install
 We provide a requirements.txt to setup the environment of evaluation. To install:
 ```
 git clone https://github.com/OpenPerceptionX/OpenLane.git
-cd OpenLane/eval/CIPO_evaluation
-conda create -n openlane_eval --file requirements.txt
+cd OpenLane/eval
+conda create -n openlane_eval python=3.8 -y
 conda activate openlane_eval
+pip install -r requirements.txt
+cd ./CIPO_evaluation
 make
 cd ../LANE_evaluation/lane2d
-# specify your opencv path in ./Makefile#L42,43
+# specify your opencv path in ./Makefile#L40,41
 make
 ```
   

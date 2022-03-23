@@ -36,7 +36,6 @@ Evaluation metrics includes:
 """
 import sys
 import numpy as np
-import cv2
 import os
 import os.path as ops
 import copy
@@ -53,18 +52,12 @@ class LaneEval(object):
         self.pred_dir = args.pred_dir
         self.test_list = args.test_list
 
-        self.K = args.K
-        self.no_centerline = args.no_centerline
-        self.resize_h = args.resize_h
-        self.resize_w = args.resize_w
-        self.H_crop = homography_crop_resize([args.org_h, args.org_w], args.crop_y, [args.resize_h, args.resize_w])
-
-        self.x_min = args.top_view_region[0, 0]
-        self.x_max = args.top_view_region[1, 0]
-        self.y_min = args.top_view_region[2, 1]
-        self.y_max = args.top_view_region[0, 1]
+        self.top_view_region = np.array([[-10, 103], [10, 103], [-10, 3], [10, 3]])
+        self.x_min = self.top_view_region[0, 0]
+        self.x_max = self.top_view_region[1, 0]
+        self.y_min = self.top_view_region[2, 1]
+        self.y_max = self.top_view_region[0, 1]
         self.y_samples = np.linspace(self.y_min, self.y_max, num=100, endpoint=False)
-        # self.y_samples = np.linspace(min_y, max_y, num=100, endpoint=False)
         self.dist_th = 1.5
         self.ratio_th = 0.75
         self.close_range = 40
@@ -383,22 +376,19 @@ if __name__ == '__main__':
     parser = define_args()
     args = parser.parse_args()
 
-    # load configuration for certain dataset
-    openLane_config(args)
-
-    # prediction result directory
+    # Prediction results path of your model
     pred_dir =  args.pred_dir
 
-    # location where the original dataset is saved. 
+    # Data (Annotation) path of OpenLane dataset
     gt_dir = args.dataset_dir
 
-    # auto-file in dependent paths
+    # Image list file(.txt) which contains relative path of every image
     test_txt = args.test_list
 
     # Initialize evaluator
     evaluator = LaneEval(args)
 
-    # evaluation
+    # Evaluation
     eval_stats = evaluator.bench_one_submit(pred_dir, gt_dir, test_txt, prob_th=0.5)
 
     print("===> Evaluation on validation set: \n"
