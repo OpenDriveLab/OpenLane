@@ -3,20 +3,28 @@ OpenLane is the first real-world and the largest scaled 3D lane dataset to date.
 
 ![](imgs/overview.jpg) 
 
-This repository is organized as the following.
-- [Data](#data)
-  - [Lane Annotation](#lane-annotation)
-  - [CIPO/Scenes Annotation](#ciposcenes-annotation)
+This repository is organized as the following. Note that our OpenLane is an autonomous driving dataset, while there's another repository with the same name [The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane). 
 - [Get Started](#get-started)
   - [Download](#download)
   - [Evaluation Kit](#evaluation-kit)
+- [Data](#data)
+  - [Lane Annotation](#lane-annotation)
+  - [CIPO/Scenes Annotation](#ciposcenes-annotation)
 - [Benchmark](#benchmark)
 - [Citation](#citation)
 - [License](#license)
 
 ### March 2022 Update
 We released v1.0 of the Openlane dataset including 1000 segments with labels of 3D/2D lanes and CIPO/Scenes.
+  
+## Get Started
+Please follow these steps to make yourself familiar with the OpenLane dataset. Create an issue if you need any further information.
+### Download
+You can download the entire OpenLane dataset [here](data/README.md)
 
+### Evaluation Kit
+We provide evaluation tools on both lane and CIPO, following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection. Please refer to [Evaluation Kit Instruction](eval/README.md)
+  
 ## Data
 OpenLane dataset is constructed on mainstream datasets in the field of autonomous driving. In v1.0, we release the annotation on [Waymo Open Dataset](https://waymo.com/open/data/perception/). In the future we'll update for annotation on [nuScenes](https://www.nuscenes.org/nuscenes). 
 OpenLane dataset focuses on lane detection as well as CIPO. We annotate all the lanes in each frame, including those in the opposite direction if no curbside exists in the middle. In addition to the lane detection task, we also annotate: (a) scene tags, such as weather and locations; (b) the CIPO, which is defined as the most concerned target w.r.t. ego vehicle; such a tag is quite pragmatic for subsequent modules as in planning/control, besides a whole set of objects from perception.
@@ -39,18 +47,10 @@ We annotate CIPO and Scenes in the following format.
 - Hours Tag. It annotates in what time this frame is collected.
 
 For more annotation criterion, please refer to [CIPO Anno Criterion](anno_criterion/CIPO/README.md)
-
-## Get Started
-Please follow these steps to make yourself familiar with the OpenLane dataset. Create an issue if you need any further information.
-### Download
-You can download the entire OpenLane dataset [here](data/README.md)
-
-### Evaluation Kit
-We provide evaluation tools on both lane and CIPO, following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection. Please refer to [Evaluation Kit](eval/README.md)
-     
+  
 ## Benchmark  
-We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](anno_criterion/Lane/README.md). 
-Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. We also provide the codebase of [PersFormer](https://github.com/OpenPerceptionX/PersFormer_3DLane) as an example to train and evaluate 3D Lane.
+We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](anno_criterion/Lane/README.md)
+Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
 - 2D Lane Detection 
   
 | Method     | All  | Up&<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |

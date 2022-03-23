@@ -337,9 +337,9 @@ def nms_1d(v):
     if len < 2:
         return v
     for i in range(len):
-        if i is not 0 and v[i - 1] > v[i]:
+        if i != 0 and v[i - 1] > v[i]:
             v_out[i] = 0.
-        elif i is not len-1 and v[i+1] > v[i]:
+        elif i != len-1 and v[i+1] > v[i]:
             v_out[i] = 0.
     return v_out
 

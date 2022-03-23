@@ -15,15 +15,15 @@ See [Requirements & Install](../README.md)
 ### Data Format
 - Prepare your result json in directory following this structure:
 ```
-|-- result_dir
-|   |-- validation
-|   |   |-- segment-xxx
-|   |   |   |-- xxx.json
-|   |   |   |-- ...
-|   |   |-- segment-xxx
-|   |   |   |-- xxx.json
-|   |   |   |-- ...
-|   |   |-- ...
+├── result_dir
+|   ├── validation
+|   |   ├── segment-xxx
+|   |   |   ├── xxx.json
+|   |   |   └── ...
+|   |   ├── segment-xxx
+|   |   |   ├── xxx.json
+|   |   |   └── ...
+|   |   └── ...
 ```
 - Prepare a test list file(.txt) contains the relative image path of dataset which is consistent with the structure above:
 ```
@@ -82,6 +82,12 @@ Here is an example:
 -t 0.3 \
 -o ./Evaluation/PersFormer/ \
 ```
+  
+We provide some json files in `example` folder, and you can run the demo evaluation:
+```
+cd example
+bash eval_demo.sh
+```
 
 ### Metric formula
 We adopt the evaluation metric from CULane dataset in [SCNN](https://github.com/XingangPan/SCNN).
@@ -92,15 +98,15 @@ We adopt the evaluation metric from CULane dataset in [SCNN](https://github.com/
 ### Data Format
 - Prepare your result json in directory following this structure:
 ```
-|-- result_dir
-|   |-- validation
-|   |   |-- segment-xxx
-|   |   |   |-- xxx.json
-|   |   |   |-- ...
-|   |   |-- segment-xxx
-|   |   |   |-- xxx.json
-|   |   |   |-- ...
-|   |   |-- ...
+├── result_dir
+|   ├── validation
+|   |   ├── segment-xxx
+|   |   |   ├── xxx.json
+|   |   |   └── ...
+|   |   ├── segment-xxx
+|   |   |   ├── xxx.json
+|   |   |   └── ...
+|   |   └── ...
 ```
 - Prepare a test list file(.txt) contains the relative image path of dataset which is consistent with the structure above:
 ```
@@ -127,7 +133,7 @@ validation/segment-xxx/xxx.jpg
 
 
 ### Evaluation
-To run the evaluation for your method please run:
+To run the evaluation for your method, please run:
 ```
 cd lane3d
 python eval_3D_lane.py --dataset_dir $dataset_dir --pred_dir $pred_dir --test_list $test_list
@@ -148,7 +154,12 @@ python eval_3D_lane.py \
 --pred_dir=./Evaluation/PersFormer/result_dir/ \
 --test_list=./Evaluation/PersFormer/test_list.txt \
 ```
-
+  
+We provide some json files in `example` folder, and you can run the demo evaluation:
+```
+cd example
+bash eval_demo.sh
+```
 
 ### Metric formula
 We adopt the evaluation metric from Apollo 3D Lane Synthetic dataset in [Gen-LaneNet](https://github.com/yuliangguo/Pytorch_Generalized_3D_Lane_Detection).
