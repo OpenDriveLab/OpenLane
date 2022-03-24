@@ -37,8 +37,8 @@ CC ?= gcc
 BUILD_DIR ?= ./build
 
 # You should change OPENCV_INCLUDE and OPENCV_LIB_PATH to your own path
-OPENCV_INCLUDE = /mnt/lustre/share_data/gengxiangwei/opencv_install/include
-OPENCV_LIB_PATH = /mnt/lustre/share_data/gengxiangwei/opencv_install/lib64
+OPENCV_INCLUDE = /usr/include
+OPENCV_LIB_PATH = /usr/lib64
 OPENCV_LIB += opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs 
 
 

@@ -4,7 +4,7 @@ This is the Official Evaluation Kit for OpenLane Dataset.
 
 
 ##  <a name="requirement"></a> Requirements
-- [OpenCV 3.4.2](https://docs.opencv.org/3.4.2/d7/d9f/tutorial_linux_install.html)
+- [OpenCV 3.4.2 (C++)](https://docs.opencv.org/3.4.2/d7/d9f/tutorial_linux_install.html)
 - numpy
 - matplotlib
 - scipy
@@ -22,7 +22,8 @@ pip install -r requirements.txt
 cd ./CIPO_evaluation
 make
 cd ../LANE_evaluation/lane2d
-# specify your opencv path in ./Makefile#L40,41
+# You should install OpenCV 3.4.2 (C++) first following the link and
+# specify your opencv path in ./Makefile#L40,41 (OPENCV_INCLUDE and OPENCV_LIB_PATH)
 make
 ```
   
