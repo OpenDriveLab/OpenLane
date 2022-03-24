@@ -4,7 +4,7 @@ This is the Official Evaluation Kit for OpenLane Dataset.
 
 
 ##  <a name="requirement"></a> Requirements
-- [OpenCV](https://github.com/opencv/opencv), we use version 3.4.2
+- [OpenCV 3.4.2](https://docs.opencv.org/3.4.2/d7/d9f/tutorial_linux_install.html)
 - numpy
 - matplotlib
 - scipy
