@@ -15,7 +15,7 @@ This repository is organized as the following. Note that our OpenLane is an auto
 - [License](#license)
 
 ### April 2022 Update
-We released v1.0 of the [PersFormer codebase](https://github.com/OpenPerceptionX/PersFormer_3DLane), providing a baseline method in OpenLane dataset.
+We released v1.0 of the [PersFormer codebase](https://github.com/OpenPerceptionX/PersFormer_3DLane), providing a baseline method on OpenLane dataset.
 
 ### March 2022 Update
 We released v1.0 of the Openlane dataset including 1000 segments with labels of 3D/2D lanes and CIPO/Scenes.
