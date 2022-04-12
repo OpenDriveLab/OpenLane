@@ -73,6 +73,7 @@ Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Sc
 | 3DLaneNet  | 40.2 | 37.7 | 43.2 | 43.0 | 39.3 | 29.3 | 36.5 |  
 |**PersFormer**|**47.8**|**42.4**|**52.8**|**48.7**|**46.0**|**37.9**|**44.6**|  
 
+The implementation of PersFormer can be found [here](https://github.com/OpenPerceptionX/PersFormer_3DLane).
 
 ## Citation
 Please use the following citation when referencing [OpenLane](https://arxiv.org/abs/2203.11089):
