@@ -94,5 +94,5 @@ And the paper for the [Waymo Open Dataset](https://waymo.com/open/data/perceptio
       year = {2020}
     }
 ## License
-Our dataset is based on the [Waymo Open Dataset](https://waymo.com/open/data/perception/) and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.
+Our dataset is based on the [Waymo Open Dataset](https://waymo.com/open/data/perception/) and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license and [Waymo Dataset License Agreement for Non-Commercial Use (August 2019)](https://waymo.com/open/terms/). You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.
 All code within this repository is under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
