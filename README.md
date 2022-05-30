@@ -23,7 +23,7 @@ We released v1.0 of the Openlane dataset including 1000 segments with labels of 
 ## Get Started
 Please follow these steps to make yourself familiar with the OpenLane dataset. Create an issue if you need any further information.
 ### Download
-You can download the entire OpenLane dataset [here](data/README.md)
+You can download the entire OpenLane dataset [here](data/README.md). Note that before using OpenLane dataset, you should register at waymo.com/open and agreed to these Terms since OpenLane is built on top of Waymo Open Dataset.
 
 ### Evaluation Kit
 We provide evaluation tools on both lane and CIPO, following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection. Please refer to [Evaluation Kit Instruction](eval/README.md)
