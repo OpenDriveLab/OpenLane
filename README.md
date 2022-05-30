@@ -76,6 +76,7 @@ Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Sc
 The implementation of PersFormer can be found [here](https://github.com/OpenPerceptionX/PersFormer_3DLane).
 
 ## Citation
+This dataset was made using the Waymo Open Dataset, provided by Waymo LLC under [license terms](waymo.com/open). 
 Please use the following citation when referencing [OpenLane](https://arxiv.org/abs/2203.11089):
 
     @article{chen2022persformer,
@@ -93,6 +94,7 @@ And the paper for the [Waymo Open Dataset](https://waymo.com/open/data/perceptio
       month = {June}, 
       year = {2020}
     }
+    @misc{waymo_open_dataset, title = {Waymo Open Dataset: An autonomous driving dataset}, website = {\url{https://www.waymo.com/open}}, year = {2019} }
 ## License
 Our dataset is based on the [Waymo Open Dataset](https://waymo.com/open/data/perception/) and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license and [Waymo Dataset License Agreement for Non-Commercial Use (August 2019)](https://waymo.com/open/terms/). You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.
 All code within this repository is under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
