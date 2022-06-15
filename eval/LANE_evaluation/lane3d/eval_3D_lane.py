@@ -183,8 +183,8 @@ class LaneEval(object):
                         z_dist[:close_range_idx] * both_visible_indices[:close_range_idx]) / np.sum(
                         both_visible_indices[:close_range_idx])
                 else:
-                    x_dist_mat_close[i, j] = self.dist_th
-                    z_dist_mat_close[i, j] = self.dist_th
+                    x_dist_mat_close[i, j] = -1
+                    z_dist_mat_close[i, j] = -1
 
                 if np.sum(both_visible_indices[close_range_idx:]) > 0:
                     x_dist_mat_far[i, j] = np.sum(
@@ -194,8 +194,8 @@ class LaneEval(object):
                         z_dist[close_range_idx:] * both_visible_indices[close_range_idx:]) / np.sum(
                         both_visible_indices[close_range_idx:])
                 else:
-                    x_dist_mat_far[i, j] = self.dist_th
-                    z_dist_mat_far[i, j] = self.dist_th
+                    x_dist_mat_far[i, j] = -1
+                    z_dist_mat_far[i, j] = -1
 
         # solve bipartite matching vis min cost flow solver
         match_results = SolveMinCostFlow(adj_mat, cost_mat)
@@ -357,10 +357,10 @@ class LaneEval(object):
         P_lane = np.sum(laneline_stats[:, 1]) / (np.sum(laneline_stats[:, 4]) + 1e-6)   # precision = TP / (TP+FP)
         C_lane = np.sum(laneline_stats[:, 2]) / (np.sum(laneline_stats[:, 5]) + 1e-6)   # category_accuracy
         F_lane = 2 * R_lane * P_lane / (R_lane + P_lane + 1e-6)
-        x_error_close_avg = np.average(laneline_x_error_close)
-        x_error_far_avg = np.average(laneline_x_error_far)
-        z_error_close_avg = np.average(laneline_z_error_close)
-        z_error_far_avg = np.average(laneline_z_error_far)
+        x_error_close_avg = np.average(laneline_x_error_close[laneline_x_error_close > -1 + 1e-6])
+        x_error_far_avg = np.average(laneline_x_error_far[laneline_x_error_far > -1 + 1e-6])
+        z_error_close_avg = np.average(laneline_z_error_close[laneline_z_error_close > -1 + 1e-6])
+        z_error_far_avg = np.average(laneline_z_error_far[laneline_z_error_far > -1 + 1e-6])
 
         output_stats.append(F_lane)
         output_stats.append(R_lane)
