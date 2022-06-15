@@ -101,7 +101,8 @@ class LaneEval(object):
                         if lane[0, 1] < self.y_samples[-1] and lane[-1, 1] > self.y_samples[0]]
         gt_lanes = [lane for lane in gt_lanes if lane[0, 1] < self.y_samples[-1] and lane[-1, 1] > self.y_samples[0]]
 
-        gt_lanes = [prune_3d_lane_by_range(np.array(lane), 3 * self.x_min, 3 * self.x_max) for lane in gt_lanes]
+        # gt_lanes = [prune_3d_lane_by_range(np.array(lane), 3 * self.x_min, 3 * self.x_max) for lane in gt_lanes]
+        gt_lanes = [prune_3d_lane_by_range(np.array(lane), self.x_min, self.x_max) for lane in gt_lanes]
 
         gt_category = [gt_category[k] for k, lane in enumerate(gt_lanes) if lane.shape[0] > 1]
         gt_lanes = [lane for lane in gt_lanes if lane.shape[0] > 1]
@@ -121,6 +122,12 @@ class LaneEval(object):
             gt_visibility_mat[i, :] = np.logical_and(x_values >= self.x_min, np.logical_and(x_values <= self.x_max,
                                                      np.logical_and(self.y_samples >= min_y, self.y_samples <= max_y)))
             gt_visibility_mat[i, :] = np.logical_and(gt_visibility_mat[i, :], visibility_vec)
+
+        # at least two-points
+        gt_lanes = [gt_lanes[k] for k in range(cnt_gt) if np.sum(gt_visibility_mat[k, :]) > 1]
+        gt_category = [gt_category[k] for k in range(cnt_gt) if np.sum(gt_visibility_mat[k, :]) > 1]
+        gt_visibility_mat = gt_visibility_mat[np.sum(gt_visibility_mat, axis=-1) > 1, :]
+        cnt_gt = len(gt_lanes)
 
         for i in range(cnt_pred):
             # # ATTENTION: ensure y mono increase before interpolation: but it can reduce size
@@ -310,6 +317,7 @@ class LaneEval(object):
                                                   [0, 0, 0, 1]], dtype=float))
                 lane = np.matmul(cam_extrinsics, np.matmul(cam_representation, lane))
                 lane = lane[0:3, :].T
+                # lane = lane[lane[: ,1].argsort(), :]
 
                 gt_lanes.append(lane)
                 gt_visibility.append(lane_visibility)
