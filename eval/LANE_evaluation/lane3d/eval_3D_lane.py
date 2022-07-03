@@ -342,10 +342,6 @@ class LaneEval(object):
             
             P_g2im = projection_g2im_extrinsic(cam_extrinsics, cam_intrinsics)
 
-            ### use gt as preds
-            pred_lanes = gt_lanes
-            pred_category = gt_category
-            ###
 
             # N to N matching of lanelines
             r_lane, p_lane, c_lane, cnt_gt, cnt_pred, match_num, \
