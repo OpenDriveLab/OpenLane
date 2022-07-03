@@ -101,7 +101,8 @@ class LaneEval(object):
                         if lane[0, 1] < self.y_samples[-1] and lane[-1, 1] > self.y_samples[0]]
         gt_lanes = [lane for lane in gt_lanes if lane[0, 1] < self.y_samples[-1] and lane[-1, 1] > self.y_samples[0]]
 
-        gt_lanes = [prune_3d_lane_by_range(np.array(lane), 3 * self.x_min, 3 * self.x_max) for lane in gt_lanes]
+        # gt_lanes = [prune_3d_lane_by_range(np.array(lane), 3 * self.x_min, 3 * self.x_max) for lane in gt_lanes]
+        gt_lanes = [prune_3d_lane_by_range(np.array(lane), self.x_min, self.x_max) for lane in gt_lanes]
 
         gt_category = [gt_category[k] for k, lane in enumerate(gt_lanes) if lane.shape[0] > 1]
         gt_lanes = [lane for lane in gt_lanes if lane.shape[0] > 1]
@@ -121,6 +122,12 @@ class LaneEval(object):
             gt_visibility_mat[i, :] = np.logical_and(x_values >= self.x_min, np.logical_and(x_values <= self.x_max,
                                                      np.logical_and(self.y_samples >= min_y, self.y_samples <= max_y)))
             gt_visibility_mat[i, :] = np.logical_and(gt_visibility_mat[i, :], visibility_vec)
+
+        # at least two-points
+        gt_lanes = [gt_lanes[k] for k in range(cnt_gt) if np.sum(gt_visibility_mat[k, :]) > 1]
+        gt_category = [gt_category[k] for k in range(cnt_gt) if np.sum(gt_visibility_mat[k, :]) > 1]
+        gt_visibility_mat = gt_visibility_mat[np.sum(gt_visibility_mat, axis=-1) > 1, :]
+        cnt_gt = len(gt_lanes)
 
         for i in range(cnt_pred):
             # # ATTENTION: ensure y mono increase before interpolation: but it can reduce size
@@ -176,8 +183,8 @@ class LaneEval(object):
                         z_dist[:close_range_idx] * both_visible_indices[:close_range_idx]) / np.sum(
                         both_visible_indices[:close_range_idx])
                 else:
-                    x_dist_mat_close[i, j] = self.dist_th
-                    z_dist_mat_close[i, j] = self.dist_th
+                    x_dist_mat_close[i, j] = -1
+                    z_dist_mat_close[i, j] = -1
 
                 if np.sum(both_visible_indices[close_range_idx:]) > 0:
                     x_dist_mat_far[i, j] = np.sum(
@@ -187,8 +194,8 @@ class LaneEval(object):
                         z_dist[close_range_idx:] * both_visible_indices[close_range_idx:]) / np.sum(
                         both_visible_indices[close_range_idx:])
                 else:
-                    x_dist_mat_far[i, j] = self.dist_th
-                    z_dist_mat_far[i, j] = self.dist_th
+                    x_dist_mat_far[i, j] = -1
+                    z_dist_mat_far[i, j] = -1
 
         # solve bipartite matching vis min cost flow solver
         match_results = SolveMinCostFlow(adj_mat, cost_mat)
@@ -310,6 +317,7 @@ class LaneEval(object):
                                                   [0, 0, 0, 1]], dtype=float))
                 lane = np.matmul(cam_extrinsics, np.matmul(cam_representation, lane))
                 lane = lane[0:3, :].T
+                # lane = lane[lane[: ,1].argsort(), :]
 
                 gt_lanes.append(lane)
                 gt_visibility.append(lane_visibility)
@@ -349,10 +357,10 @@ class LaneEval(object):
         P_lane = np.sum(laneline_stats[:, 1]) / (np.sum(laneline_stats[:, 4]) + 1e-6)   # precision = TP / (TP+FP)
         C_lane = np.sum(laneline_stats[:, 2]) / (np.sum(laneline_stats[:, 5]) + 1e-6)   # category_accuracy
         F_lane = 2 * R_lane * P_lane / (R_lane + P_lane + 1e-6)
-        x_error_close_avg = np.average(laneline_x_error_close)
-        x_error_far_avg = np.average(laneline_x_error_far)
-        z_error_close_avg = np.average(laneline_z_error_close)
-        z_error_far_avg = np.average(laneline_z_error_far)
+        x_error_close_avg = np.average(laneline_x_error_close[laneline_x_error_close > -1 + 1e-6])
+        x_error_far_avg = np.average(laneline_x_error_far[laneline_x_error_far > -1 + 1e-6])
+        z_error_close_avg = np.average(laneline_z_error_close[laneline_z_error_close > -1 + 1e-6])
+        z_error_far_avg = np.average(laneline_z_error_far[laneline_z_error_far > -1 + 1e-6])
 
         output_stats.append(F_lane)
         output_stats.append(R_lane)
