@@ -14,6 +14,9 @@ This repository is organized as the following. Note that our OpenLane is an auto
 - [Citation](#citation)
 - [License](#license)
 
+### July 2022 Update
+We released v1.1 of the Openlane dataset, fixing 3D lane evaluation issues and some json files mismatch.
+
 ### April 2022 Update
 We released v1.0 of the [PersFormer codebase](https://github.com/OpenPerceptionX/PersFormer_3DLane), providing a baseline method on OpenLane dataset.
 
