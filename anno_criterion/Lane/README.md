@@ -31,7 +31,7 @@ Here's the data format for 2D/3D lane annotation. The evaluation can be referred
                 [u1,u2,u3...],
                 [v1,v2,v3...]
             ],
-            "xyz":[                         <float> [3, n] -- 3d lane points under camera coordinate
+            "xyz":[                         <float> [3, n] -- 3d lane points under vehicle coordinate
                 [x1,x2,x3...],
                 [y1,y2,y3...],
                 [z1,z2,z3...],
