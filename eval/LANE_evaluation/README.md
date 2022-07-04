@@ -127,7 +127,7 @@ validation/segment-xxx/xxx.jpg
     "file_path":                            <str> -- image path
     "lane_lines": [
         {
-            "xyz":                          <float> [3, n] -- x,y,z coordinates of sampled points in camera coordinate
+            "xyz":                          <float> [3, n] -- x,y,z coordinates of sampled points in vehicle coordinate
             "category":                     <int> -- lane category
         }，
         ...                                 (k lanes in `lane_lines` dict)
