@@ -54,7 +54,7 @@ We annotate CIPO and Scenes in the following format.
 
 For more annotation criterion, please refer to [CIPO Anno Criterion](anno_criterion/CIPO/README.md)
   
-## Benchmark  
+## Benchmark
 We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](anno_criterion/Lane/README.md)
 Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
 - 2D Lane Detection 
@@ -68,7 +68,7 @@ Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Sc
 | CondLaneNet-M | 55.0 | 58.5 | 59.4 | 49.2 | 48.6 | 50.7 | 47.8 | 
 |**CondLaneNet-L**|**59.1**|**62.1**|**62.9**|**54.7**|**51.0**|**55.7**|**52.3**|  
 
-- 3D Lane Detection  
+- 3D Lane Detection  (this will be updated in a few days as we fix some issue)
   
 | Method     | All  | Up &<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |  
 | :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|  
