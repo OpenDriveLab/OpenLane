@@ -179,7 +179,7 @@ class LaneEval(object):
                 euclidean_dist[other_indices] = self.dist_th
 
                 # if np.average(euclidean_dist) < 2*self.dist_th: # don't prune here to encourage finding perfect match
-                num_match_mat[i, j] = np.sum(euclidean_dist < self.dist_th)
+                num_match_mat[i, j] = np.sum(euclidean_dist < self.dist_th) - np.sum(both_invisible_indices)
                 adj_mat[i, j] = 1
                 # ATTENTION: use the sum as int type to meet the requirements of min cost flow optimization (int type)
                 # using num_match_mat as cost does not work?
@@ -187,6 +187,8 @@ class LaneEval(object):
                 cost_ = np.sum(euclidean_dist)
                 if cost_<1 and cost_>0:
                     cost_ = 1
+                else:
+                    cost_ = (cost_).astype(int)
                 cost_mat[i, j] = cost_
                 # cost_mat[i, j] = np.sum(euclidean_dist)
                 # cost_mat[i, j] = num_match_mat[i, j]
