@@ -14,14 +14,10 @@ This repository is organized as the following. Note that our OpenLane is an auto
 - [Citation](#citation)
 - [License](#license)
 
-### July 2022 Update
-We released v1.1 of the Openlane dataset, fixing [3D lane evaluation issues](https://github.com/OpenPerceptionX/OpenLane/issues/15) and some json files mismatch.
-
-### April 2022 Update
-We released v1.0 of the [PersFormer codebase](https://github.com/OpenPerceptionX/PersFormer_3DLane), providing a baseline method on OpenLane dataset.
-
-### March 2022 Update
-We released v1.0 of the Openlane dataset including 1000 segments with labels of 3D/2D lanes and CIPO/Scenes.
+## News
+- [2022/07]: We released v1.1 of the Openlane dataset, fixing [3D lane evaluation issues](https://github.com/OpenPerceptionX/OpenLane/issues/15) and some json files mismatch.
+- [2022/04]: We released v1.0 of the [PersFormer codebase](https://github.com/OpenPerceptionX/PersFormer_3DLane), providing a baseline method on OpenLane dataset.
+- [2022/03]: We released v1.0 of the Openlane dataset including 1000 segments with labels of 3D/2D lanes and CIPO/Scenes.
   
 ## Get Started
 Please follow these steps to make yourself familiar with the OpenLane dataset. Create an issue if you need any further information.
@@ -29,7 +25,7 @@ Please follow these steps to make yourself familiar with the OpenLane dataset. C
 You can download the entire OpenLane dataset [here](data/README.md). Note that before using OpenLane dataset, you should register at [Waymo Open Dataset Website](waymo.com/open) and agreed to these Terms since OpenLane is built on top of Waymo Open Dataset.
 
 ### Evaluation Kit
-We provide evaluation tools on both lane and CIPO, following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection. Please refer to [Evaluation Kit Instruction](eval/README.md)
+We provide evaluation tools on both lane and CIPO, following the same data format as Waymo and common evaluation pipeline in 2D/3D lane detection. Please refer to [Evaluation Kit Instruction](eval/README.md).
   
 ## Data
 OpenLane dataset is constructed on mainstream datasets in the field of autonomous driving. In v1.0, we release the annotation on [Waymo Open Dataset](https://waymo.com/open/data/perception/). In the future we'll update for annotation on [nuScenes](https://www.nuscenes.org/nuscenes). 
@@ -43,7 +39,7 @@ We annotate lane in the following format.
 - Lane tracking ID. Each lane except curb has a unique id. 
 - Stopline and curb.
 
-For more annotation criterion, please refer to [Lane Anno Criterion](anno_criterion/Lane/README.md)
+For more annotation criterion, please refer to [Lane Anno Criterion](anno_criterion/Lane/README.md).
 
 ### CIPO/Scenes Annotation
 We annotate CIPO and Scenes in the following format.
@@ -52,10 +48,10 @@ We annotate CIPO and Scenes in the following format.
 - Weather Tag. It describes under what weather this frame is collected.
 - Hours Tag. It annotates in what time this frame is collected.
 
-For more annotation criterion, please refer to [CIPO Anno Criterion](anno_criterion/CIPO/README.md)
+For more annotation criterion, please refer to [CIPO Anno Criterion](anno_criterion/CIPO/README.md).
   
 ## Benchmark
-We provide an initial benchmark on OpenLane 2D/3D Lane Detection. To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](anno_criterion/Lane/README.md)
+We provide an initial benchmark on OpenLane 2D/3D Lane Detection and you are welcome to **pull request** and add your work here! To thoroughly evaluate the model, we provide different case split from the entire validation set. They are Up&Down case, Curve case, Extreme Weather case, Night case, Intersection case, and Merge&Split case. More detail can be found in [Lane Anno Criterion](anno_criterion/Lane/README.md)
 Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Score**) of different 2D/3D methods on different cases are shown as follows. 
 - 2D Lane Detection 
   
@@ -81,15 +77,16 @@ The implementation of PersFormer can be found [here](https://github.com/OpenPerc
 ## Citation
 This dataset was made using the Waymo Open Dataset, provided by Waymo LLC under [license terms](waymo.com/open). 
 Please use the following citation when referencing [OpenLane](https://arxiv.org/abs/2203.11089):
-
-    @article{chen2022persformer,
+```bibtex
+    @inproceedings{chen2022persformer,
       title={PersFormer: 3D Lane Detection via Perspective Transformer and the OpenLane Benchmark},
       author={Chen, Li and Sima, Chonghao and Li, Yang and Zheng, Zehan and Xu, Jiajie and Geng, Xiangwei and Li, Hongyang and He, Conghui and Shi, Jianping and Qiao, Yu and Yan, Junchi},
-      journal={arXiv preprint arXiv:2203.11089},
+      booktitle={European Conference on Computer Vision (ECCV)},
       year={2022}
     }
+```
 And the paper for the [Waymo Open Dataset](https://waymo.com/open/data/perception/):
-
+```bibtex
     @inproceedings{Sun_2020_CVPR, 
       author = {Sun, Pei and Kretzschmar, Henrik and Dotiwalla, Xerxes and Chouard, Aurelien and Patnaik, Vijaysai and Tsui, Paul and Guo, James and Zhou, Yin and Chai, Yuning and Caine, Benjamin and Vasudevan, Vijay and Han, Wei and Ngiam, Jiquan and Zhao, Hang and Timofeev, Aleksei and Ettinger, Scott and Krivokon, Maxim and Gao, Amy and Joshi, Aditya and Zhang, Yu and Shlens, Jonathon and Chen, Zhifeng and Anguelov, Dragomir}, 
       title = {Scalability in Perception for Autonomous Driving: Waymo Open Dataset}, 
@@ -103,6 +100,8 @@ And the paper for the [Waymo Open Dataset](https://waymo.com/open/data/perceptio
       website = {\url{https://www.waymo.com/open}}, 
       year = {2019} 
     }
+```
+
 ## License
 Our dataset is based on the [Waymo Open Dataset](https://waymo.com/open/data/perception/) and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license and [Waymo Dataset License Agreement for Non-Commercial Use (August 2019)](https://waymo.com/open/terms/). You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.
 All code within this repository is under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
