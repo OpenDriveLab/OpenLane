@@ -1,7 +1,7 @@
 # Data Download
 We provide three download links here to access the OpenLane dataset.
 * [OpenDataLab](https://opendatalab.com/datasets/330)
-* [Google Drive](https://drive.google.com/drive/folders/1fTC80RHy3HXA1-qYV26JUl2ggqIiDK-Z?usp=sharing)
+* [Google Drive](https://drive.google.com/drive/folders/14Ly41ylabAv-ALxGTMM0Pr5b4D_V3_1d?usp=sharing)
 * [Baidu Cloud](https://pan.baidu.com/s/1-EMPHlqTkh1LMZzdSD9NvQ?pwd=f7cr)
 
 The entire folder hierarchy is shown below.
