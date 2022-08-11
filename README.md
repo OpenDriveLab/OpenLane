@@ -1,7 +1,10 @@
 # OpenLane
 OpenLane is the first real-world and the largest scaled 3D lane dataset to date. Our dataset collects valuable contents from public perception dataset [Waymo Open Dataset](https://waymo.com/open/data/perception/) and provides lane&closest-in-path object(CIPO) annotation for **1000** segments. In short, OpenLane owns **200K** frames and over **880K** carefully annotated lanes. We have released the OpenLane Dataset publicly to aid the research community in making advancements in 3D perception and autonomous driving technology.  [[Paper]](https://arxiv.org/abs/2203.11089)
 
-![](imgs/overview.jpg) 
+<figure class="half">
+    <img src="imgs/overview.jpg" height="260" >
+    <img src="imgs/overview.gif" height="260">
+</figure>
 
 This repository is organized as the following. Note that our OpenLane is an autonomous driving dataset, while there's another repository with the same name [The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane). 
 - [Get Started](#get-started)
