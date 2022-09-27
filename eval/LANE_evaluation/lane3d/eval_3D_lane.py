@@ -89,6 +89,13 @@ class LaneEval(object):
         x_error_far = []
         z_error_close = []
         z_error_far = []
+        
+        # only keep the visible portion
+        gt_lanes = [prune_3d_lane_by_visibility(np.array(gt_lane), np.array(gt_visibility[k])) for k, gt_lane in
+                    enumerate(gt_lanes)]
+        if 'openlane' in self.dataset_name:
+            gt_category = [gt_category[k] for k, lane in enumerate(gt_lanes) if lane.shape[0] > 1]
+        gt_lanes = [lane for lane in gt_lanes if lane.shape[0] > 1]
 
         # only consider those pred lanes overlapping with sampling range
         pred_category = [pred_category[k] for k, lane in enumerate(pred_lanes)
