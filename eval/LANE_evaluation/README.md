@@ -166,7 +166,32 @@ bash eval_demo.sh
 ```
 
 ### Metric formula
-We adopt the evaluation metric from Apollo 3D Lane Synthetic dataset in [Gen-LaneNet](https://github.com/yuliangguo/Pytorch_Generalized_3D_Lane_Detection).
+To evaluate 3d lane predictions, we first prune gt lanes by their visibilities and only consider those lanes overlapping with the sampling range for both gts and predictions.         
+After resampling lanes at each y step, we define a new visibility value for each point: only those within the x & y range are set for visible points.
+The matching cost is defined as the Euclidean distance between each gt and prediction lane, which can be formulated as follows:
+
+$$
+d_{i}^{j,k}=
+\begin{cases}
+(x_{i}^{j}-x_{i}^{k})^2+(z_{i}^{j}-z_{i}^{k})^2, \quad if {\kern 3pt} both {\kern 3pt} visible\\
+0, {\kern 100pt} if {\kern 3pt} both {\kern 3pt} invisible\\
+1.5, {\kern 100pt} otherwise\\
+\end{cases}
+$$
+
+
+Then use minimum-cost flow to get the global best matching results.         
+For each gt-pred matching pair, we also count the number of matching points between whom the Euclidean distance is under a threshold (here we set it to 1.5). With the definition above, a prediction lane can be counted as a true positive when:          
+
+$$
+\begin{cases}
+\frac {num {\kern 4pt} match {\kern 4pt} points}{num {\kern 4pt} gt {\kern 4pt} points}\geq0.75,\\
+\frac {num {\kern 4pt} match {\kern 4pt} points}{num {\kern 4pt} pred {\kern 4pt} points}\geq0.75,\\
+\end{cases}
+$$
+      
+Moreover, we divide the error metric into two parts: the close error (within the first 40 points), and the far error (the rest of 60 points).
+
   
 ## <a name="ack"></a> Acknowledgements
 Our 2D evaluation code builds on [SCNN](https://github.com/XingangPan/SCNN) and 3D on [Gen-LaneNet](https://github.com/yuliangguo/Pytorch_Generalized_3D_Lane_Detection).
