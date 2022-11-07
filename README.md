@@ -15,6 +15,9 @@ This repository is organized as the following. Note that our OpenLane is an auto
 - [License](#license)
 
 ## News
+- [2022/11]: We released v1.2 of the Openlane dataset and features are shown as following.
+  - Add frame pose info for sequential research. 
+  - [Filter some noise points](https://github.com/OpenPerceptionX/OpenLane/issues/23) and [fix coordinate system bug](https://github.com/OpenPerceptionX/OpenLane/issues/31).
 - [2022/09]: Update evaluation metrics, prune gt points by visibility before evaluation, fixing issue [A question about prune_3d_lane_by_visibility](https://github.com/OpenPerceptionX/OpenLane/issues/18).           
 - [2022/07]: We released v1.1 of the Openlane dataset, fixing [3D lane evaluation issues](https://github.com/OpenPerceptionX/OpenLane/issues/15) and some json files mismatch.
 - [2022/04]: We released v1.0 of the [PersFormer codebase](https://github.com/OpenPerceptionX/PersFormer_3DLane), providing a baseline method on OpenLane dataset.
