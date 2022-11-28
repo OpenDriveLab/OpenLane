@@ -23,3 +23,7 @@ Note that the 3D lane GT are annotated in the Waymo camera coord sys. With matri
 https://github.com/OpenPerceptionX/OpenLane/blob/1e8e61ccb456232955cf999b8db2aa4023945d25/eval/LANE_evaluation/lane3d/eval_3D_lane.py#L308-L314
 
 **In conclusion, there are some redundancies in the process and one could try to use only `R_vg` and original `cam_extrinsics` to see if they could get the same results.**
+
+## Pose Info in OpenLaneV1.2
+### Waymo (OpenLane) vehicle coord sys: vehicle to global
+point_global = point_vehicle @ pose_matrix
