@@ -12,6 +12,7 @@ Here's the data format for 2D/3D lane annotation. The evaluation can be referred
     "lane_lines": [                         (k lanes in `lane_lines` list)
         {
             "category":                     <int> -- lane category
+                                                        0: 'unkown',
                                                         1: 'white-dash',
                                                         2: 'white-solid',
                                                         3: 'double-white-dash',
