@@ -26,4 +26,4 @@ https://github.com/OpenPerceptionX/OpenLane/blob/1e8e61ccb456232955cf999b8db2aa4
 
 ## Pose Info in OpenLaneV1.2
 ### Waymo (OpenLane) vehicle coord sys: vehicle to global
-point_global = point_vehicle @ pose_matrix
+point_global = pose_matrix @ point_vehicle
