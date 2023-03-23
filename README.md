@@ -15,6 +15,7 @@ This repository is organized as the following. Note that our OpenLane is an auto
 - [License](#license)
 
 ## News
+- [2023/03]: We maintain a leaderboard on [paperswithcode](https://paperswithcode.com/sota/3d-lane-detection-on-openlane).
 - [2022/11]: We released `v1.2` of the Openlane dataset and features are shown as following.
   - Add frame pose info for sequential research. 
   - [Filter some noise points](https://github.com/OpenDriveLab/OpenLane/issues/23) and [fix coordinate system bug](https://github.com/OpenDriveLab/OpenLane/issues/31).
@@ -76,6 +77,8 @@ Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Sc
 | 3DLaneNet  |1.1| 44.1 | 40.8 | 46.5 | 47.5 | 41.5 | 32.1 | 41.7 |    -    | -|-| -|-|-|
 |**PersFormer**|1.1|**50.5**|**45.6**|**58.7**|**54.0**|**50.0**|**41.6**|**53.1**|[model](https://drive.google.com/file/d/1TwjmFB3p3luCG8ytZ4MEI-TMoDT2Vn3G/view?usp=share_link)  | 0.319|0.325|0.112|0.141|89.51|
 |**PersFormer**|1.2|**52.9**|**47.5**|**58.4**|**51.8**|**47.4**|**42.1**|**50.9**|[model](https://drive.google.com/file/d/1jtDfnxcNNbefgpYGfue1XlvcvtmfPZj7/view?usp=share_link)  | 0.291|0.294| 0.080|0.116|89.24|
+
+For Intuitive comparison, we provide a leaderboard on [paperwithcode](https://paperswithcode.com/sota/3d-lane-detection-on-openlane).
 
 The implementation of PersFormer can be found [here](https://github.com/OpenDriveLab/PersFormer_3DLane).
 
