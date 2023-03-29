@@ -11,7 +11,9 @@ This repository is organized as the following.
 - [Data](#data)
   - [Lane Annotation](#lane-annotation)
   - [CIPO/Scenes Annotation](#ciposcenes-annotation)
-- [Benchmark](#benchmark)
+- [Benchmark and Leaderboard](#benchmark-and-leaderboard)
+  - [Benchmark](#benchmark)
+  - [Leaderboard](#leaderboard)
 - [Citation](#citation)
 - [License](#license)
 
