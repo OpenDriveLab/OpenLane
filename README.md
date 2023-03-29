@@ -76,7 +76,7 @@ Based on the [Lane Eval Metric](eval/LANE_evaluation/README.md), results (**F-Sc
 | CondLaneNet-M | 55.0 | 58.5 | 59.4 | 49.2 | 48.6 | 50.7 | 47.8 | 
 |**CondLaneNet-L**|**59.1**|**62.1**|**62.9**|**54.7**|**51.0**|**55.7**|**52.3**|  
 
-- 3D Lane Detection  (this will be updated in a few days as we fix some issue)
+- 3D Lane Detection
   
 | Method     |Version| All  | Up &<br>Down | Curve | Extreme<br>Weather | Night | Intersection | Merge&<br>Split |  Best model |x-c|x-f|z-c|z-f|Category Accuracy|
 | :----:     |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
