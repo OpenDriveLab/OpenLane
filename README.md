@@ -1,9 +1,10 @@
 # OpenLane-V1
-OpenLane is the first real-world and the largest scaled 3D lane dataset to date. Our dataset collects valuable contents from public perception dataset [Waymo Open Dataset](https://waymo.com/open/data/perception/) and provides lane&closest-in-path object(CIPO) annotation for **1000** segments. In short, OpenLane owns **200K** frames and over **880K** carefully annotated lanes. We have released the OpenLane Dataset publicly to aid the research community in making advancements in 3D perception and autonomous driving technology.  [[Paper]](https://arxiv.org/abs/2203.11089)
+OpenLane is the first real-world and the largest scaled 3D lane dataset to date. Our dataset collects valuable contents from [public perception dataset](https://waymo.com/open/data/perception/), providing lane and closest-in-path object(CIPO) annotations for **1000** segments. In short, OpenLane owns **200K** frames and over **880K** carefully annotated lanes. We have released the OpenLane Dataset publicly to aid the research community in making advancements in 3D perception and autonomous driving technology. See details in [Paper.](https://arxiv.org/abs/2203.11089)
 
 <img src="imgs/overview.jpg"  height = "300"  /><img src="imgs/overview.gif"  height = "300" />
 
-This repository is organized as the following. Note that our OpenLane is an autonomous driving dataset, while there's another repository with the same name [The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane). 
+This repository is organized as the following.
+
 - [Get Started](#get-started)
   - [Download](#download)
   - [Evaluation Kit](#evaluation-kit)
@@ -13,6 +14,8 @@ This repository is organized as the following. Note that our OpenLane is an auto
 - [Benchmark](#benchmark)
 - [Citation](#citation)
 - [License](#license)
+
+> Note that our OpenLane is an autonomous driving dataset, while there's another repository with the same name [The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane). 
 
 ## News
 - [2023/03]: We maintain a leaderboard on [paperswithcode](https://paperswithcode.com/sota/3d-lane-detection-on-openlane) :microphone:.
@@ -89,7 +92,7 @@ For comparison, we provide a leaderboard on [paperwithcode](https://paperswithco
 
 
 ## Citation
-This dataset was made using the Waymo Open Dataset, provided by Waymo LLC under [license terms](waymo.com/open). 
+
 Please use the following citation when referencing [OpenLane](https://arxiv.org/abs/2203.11089):
 ```bibtex
     @inproceedings{chen2022persformer,
@@ -99,22 +102,7 @@ Please use the following citation when referencing [OpenLane](https://arxiv.org/
       year={2022}
     }
 ```
-And the paper for the [Waymo Open Dataset](https://waymo.com/open/data/perception/):
-```bibtex
-    @inproceedings{Sun_2020_CVPR, 
-      author = {Sun, Pei and Kretzschmar, Henrik and Dotiwalla, Xerxes and Chouard, Aurelien and Patnaik, Vijaysai and Tsui, Paul and Guo, James and Zhou, Yin and Chai, Yuning and Caine, Benjamin and Vasudevan, Vijay and Han, Wei and Ngiam, Jiquan and Zhao, Hang and Timofeev, Aleksei and Ettinger, Scott and Krivokon, Maxim and Gao, Amy and Joshi, Aditya and Zhang, Yu and Shlens, Jonathon and Chen, Zhifeng and Anguelov, Dragomir}, 
-      title = {Scalability in Perception for Autonomous Driving: Waymo Open Dataset}, 
-      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 
-      month = {June}, 
-      year = {2020}
-    }
-    
-    @misc{waymo_open_dataset, 
-      title = {Waymo Open Dataset: An autonomous driving dataset}, 
-      website = {\url{https://www.waymo.com/open}}, 
-      year = {2019} 
-    }
-```
+
 
 ## License
 Our dataset is based on the [Waymo Open Dataset](https://waymo.com/open/data/perception/) and therefore we distribute the data under [Creative Commons Attribution-NonCommercial-ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/) license and [Waymo Dataset License Agreement for Non-Commercial Use (August 2019)](https://waymo.com/open/terms/). You are free to share and adapt the data, but have to give appropriate credit and may not use the work for commercial purposes.
