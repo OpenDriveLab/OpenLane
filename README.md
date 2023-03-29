@@ -18,7 +18,7 @@ This repository is organized as the following.
 > Note that our OpenLane is an autonomous driving dataset, while there's another repository with the same name [The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane). 
 
 ## News
-- [2023/03]: We announced a brand-new dataset on scene understanding and are holding a challenge on the dataset, check out on [OpenLane-V2](https://github.com/OpenDriveLab/OpenLane-V2) and [challenge website](https://opendrivelab.com/AD23Challenge.html).
+- [2023/03]: We announced a brand-new dataset on scene understanding and are holding a challenge on the dataset, check out on [OpenLane-V2](https://github.com/OpenDriveLab/OpenLane-V2) and [challenge website](https://opendrivelab.com/AD23Challenge.html) :star:.
 - [2023/03]: We are maintaining a leaderboard on [paperswithcode](https://paperswithcode.com/sota/3d-lane-detection-on-openlane) :microphone:.
 - [2022/11]: We released `v1.2` of the Openlane dataset and features are shown as following.
   - Add frame pose info for sequential research. 
