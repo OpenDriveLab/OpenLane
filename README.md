@@ -48,7 +48,6 @@ We annotate lane in the following format.
 - Lane category. Each lane has a category such as double yellow line or curb.
 - Lane property. Some of lanes have a property such as right, left.
 - Lane tracking ID. Each lane except curb has a unique id. 
-- Stopline and curb.
 
 For more annotation criterion, please refer to [Lane Anno Criterion](anno_criterion/Lane/README.md).
 
