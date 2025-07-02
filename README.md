@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 🌟 Stay up to date at [opendrivelab.com](https://opendrivelab.com/#news)!
+
 # OpenLane-V1
 OpenLane is the first real-world and the largest scaled 3D lane dataset to date. Our dataset collects valuable contents from [public perception dataset](https://waymo.com/open/data/perception/), providing lane and closest-in-path object(CIPO) annotations for **1000** segments. In short, OpenLane owns **200K** frames and over **880K** carefully annotated lanes. We have released the OpenLane Dataset publicly to aid the research community in making advancements in 3D perception and autonomous driving technology. See details in [Paper.](https://arxiv.org/abs/2203.11089)
 
